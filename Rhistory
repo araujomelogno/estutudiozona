@@ -1,0 +1,475 @@
+library(tidyverse)
+library(haven)
+df = read_sav('BASE_PBI.sav')
+write_csv(df, 'df.csv', na = '')
+cols(df)
+colnames(df)
+lower(colnames(df))
+tolower(colnames(df))
+colnames(df) = tolower(colnames(df))
+segmentadores = [
+segmentadores = list(
+'id_base',
+'sexo',
+'edad_tramo',
+'depto',
+'hijos',
+'barrio',
+'cargo_declarado',
+'edu_rec',
+'industria_rec',
+'modalidad_trabajo'
+)
+segmentadores
+df_segmentadores = df %>%
+select(segmentadores)
+df_segmentadores = df[segmentadores]
+segmentadores = c(
+'id_base',
+'sexo',
+'edad_tramo',
+'depto',
+'hijos',
+'barrio',
+'cargo_declarado',
+'edu_rec',
+'industria_rec',
+'modalidad_trabajo'
+)
+df_segmentadores = df[segmentadores]
+segmentadores = c(
+'idbase',
+'sexo',
+'edad_tramo',
+'depto',
+'hijos',
+'barrio',
+'cargo_declarado',
+'edu_rec',
+'industria_rec',
+'modalidad_trabajo'
+)
+df_segmentadores = df[segmentadores]
+df_indicadores = df[-segmentadores]
+df_indicadores = df[~segmentadores]
+df_segmentadores = df %>%
+select(all_of(segmentadores))
+df_indicadores = df %>%
+select(-all_of(segmentadores))
+df_indicadores = df %>%
+select(-all_of(segmentadores)) %>%
+bind_cols(df[idbase])
+df_indicadores = df %>%
+select(-all_of(segmentadores)) %>%
+bind_cols(df['idbase'])
+colnames(df_indicadores )
+library(haven)
+df <- read_sav("sample_dataset.sav")
+df
+df <- read_sav("G:\.shortcut-targets-by-id\153DRxBD4jspE3sko8JH1R6j2AYv7OrgD\PBI - Comunidad Zona\sample_dataset.sav")
+df <- read_sav("G:/.shortcut-targets-by-id/153DRxBD4jspE3sko8JH1R6j2AYv7OrgD/PBI - Comunidad Zona/sample_dataset.sav")
+df
+?read_sav
+df <- read_spss("G:/.shortcut-targets-by-id/153DRxBD4jspE3sko8JH1R6j2AYv7OrgD/PBI - Comunidad Zona/sample_dataset.sav")
+df
+haven::as_factor(df)
+library(haven)
+df <- read_spss("G:/.shortcut-targets-by-id/153DRxBD4jspE3sko8JH1R6j2AYv7OrgD/PBI - Comunidad Zona/Curso Power BI 2024/data/sample_dataset.sav")
+head(df)
+df <- haven::as_factor(df)
+head(df)
+write.csv(df, "data_para_pbi.csv")
+colnames(df)
+head(df_dim)
+for (col in cols) {
+df_dim <- df %>%
+select(col) %>%
+unique()
+head(df_dim)
+}
+cols <- colnames(df)
+for (col in cols) {
+df_dim <- df %>%
+select(col) %>%
+unique()
+head(df_dim)
+}
+library(tidyverse)
+for (col in cols) {
+df_dim <- df %>%
+select(col) %>%
+unique()
+head(df_dim)
+}
+df_dim <- df %>%
+select(all_of(col)) %>%
+unique()
+View(df_dim)
+for (col in cols) {
+df_dim <- df %>%
+select(all_of(col)) %>%
+unique()
+head(df_dim)
+}
+for (col in cols) {
+df_dim <- df %>%
+select(all_of(col)) %>%
+unique()
+print(head(df_dim))
+}
+library(haven)
+for (col in cols) {
+df_dim_num <- df %>%
+select(all_of(col)) %>%
+unique()
+df_dim_value <- df %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+unique()
+print(head(df_dim_num))
+print(head(df_dim_value))
+}
+data <- haven::read_spss("G:/.shortcut-targets-by-id/153DRxBD4jspE3sko8JH1R6j2AYv7OrgD/PBI - Comunidad Zona/Curso Power BI 2024/data/sample_dataset.sav")
+cols <- colnames(data)
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+unique()
+print(head(df_dim_num))
+print(head(df_dim_value))
+}
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+unique()
+df_output <- cbind(df_dim_num, df_dim_value)
+print(head(df_output))
+}
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+unique()
+if (is.integer(df_dim_value)) {
+df_output <- cbind(df_dim_num, df_dim_value)
+print(head(df_output))
+}
+}
+if (is.character(df_dim_value)) {
+df_output <- cbind(df_dim_num, df_dim_value)
+print(head(df_output))
+}
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+unique()
+if (is.character(df_dim_value)) {
+df_output <- cbind(df_dim_num, df_dim_value)
+print(head(df_output))
+}
+}
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+unique()
+if (is.factor(df_dim_value)) {
+df_output <- cbind(df_dim_num, df_dim_value)
+print(head(df_output))
+}
+}
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+as.data.frame() %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+as.data.frame() %>%
+unique()
+if (is.factor(df_dim_value)) {
+df_output <- cbind(df_dim_num, df_dim_value)
+print(head(df_output))
+}
+}
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+as.data.frame() %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+as.data.frame() %>%
+unique()
+if (is.character(df_dim_value)) {
+df_output <- cbind(df_dim_num, df_dim_value)
+print(head(df_output))
+}
+}
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+as.vector() %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+as.vector() %>%
+unique()
+if (is.character(df_dim_value)) {
+df_output <- cbind(df_dim_num, df_dim_value)
+print(head(df_output))
+}
+}
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+as.vector() %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+as.vector() %>%
+unique()
+if (is.character(df_dim_value[[1]])) {
+df_output <- cbind(df_dim_num, df_dim_value)
+print(head(df_output))
+}
+}
+df_output <- cbind(df_dim_num[[1]], df_dim_value[[1]])
+for (col in cols) {
+df_dim_num <- data %>%
+select(all_of(col)) %>%
+as.vector() %>%
+unique()
+df_dim_value <- data %>%
+select(all_of(col)) %>%
+haven::as_factor() %>%
+as.vector() %>%
+unique()
+if (is.character(df_dim_value[[1]])) {
+df_output <- cbind(df_dim_num[[1]], df_dim_value[[1]])
+print(head(df_output))
+}
+}
+library(haven)
+data <- haven::read_spss("G:/.shortcut-targets-by-id/153DRxBD4jspE3sko8JH1R6j2AYv7OrgD/PBI - Comunidad Zona/Curso Power BI 2024/data/sample_dataset.sav")
+data <- haven::as_factor(data)
+data
+write.csv(data, "data.csv", row.names = False)
+write.csv(data, "data.csv", row.names = NA)
+write.csv(data, "data.csv", row.names = FALSE)
+View(data)
+df = read_sav('BASE_PBI.sav')
+getwd()
+library(haven)
+intall.packages("haven")
+install.packages("haven")
+library(haven)
+df = read_sav('BASE_PBI.sav')
+setwd(C:\1\estudios\zonA\2025\PBI - Comunidad Zona\datosBraulio)
+setwd(C:/1/estudios/zonA/2025/PBI - Comunidad Zona/datosBraulio)
+setwd(/1/estudios/zonA/2025/PBI - Comunidad Zona/datosBraulio)
+setwd(~1/estudios/zonA/2025/PBI - Comunidad Zona/datosBraulio)
+setwd("C:/1/estudios/zonA/2025/PBI - Comunidad Zona/datosBraulio")
+getwd()
+df = read_sav('BASE_PBI.sav')
+savehistory("historialDaniel.txt")
+write_csv(df, 'df.csv', na = '')
+install.packages("readr")
+write_csv(df, 'df.csv', na = '')
+library(utils)
+write_csv(df, 'df.csv', na = '')
+getwd
+getwd()
+df = read_sav('BASE_PBI.sav')
+df = read_sav('BASE_PBI.sav')
+library(haven)
+df = read_sav('BASE_PBI.sav')
+write_csv(df, 'df.csv', na = '')
+library(tidyverse)
+install.packages("tidyverse")
+library(tidyverse)
+write_csv(df, 'df.csv', na = '')
+cols(df)
+colnames(df)
+lower(colname(df))
+tolower(colnames(df))
+colnames(df) = tolower(colnames(df))
+segmentadores = list(
+'id_base',
+'sexo',
+'edad_tramo',
+'depto',
+'hijos',
+'barrio',
+'cargo_declarado',
+'edu_rec',
+'industria_rec',
+'modalidad_trabajo'
+)
+view(segmentadores)
+segmentadores
+head(segmentadores)
+df_segmentadores = df %>%
+select(segmentadores)
+df_segmentadores = df[segmentadores]
+df_segmentadores = df[segmentadores]
+segmentadores = c(
+'idbase',
+'sexo',
+'edad_tramo',
+'depto',
+'hijos',
+'barrio',
+'cargo_declarado',
+'edu_rec',
+'industria_rec',
+'modalidad_trabajo'
+)
+df_segmentadores = df[segmentadores]
+view(df_segmentadores)
+df_indicadores = df[-segmentadores]
+df_indicadores = df[~segmentadores]
+df_segmentadores = df %>%
+view(df_segmentadores)
+df_indicadores = df[~segmentadores]
+df_indicadores = df %>%
+select(-all_of(segmentadores))
+df_segmentadores = df %>%
+select(all_of(segmentadores))
+df_segmentadores = df %>%
+select(all_of(segmentadores))
+bind_cols(df[idbase])
+view
+view(df)
+bind_cols(df[idbase])
+df_indicadores = df %>%
+select(-all_of(segmentadores)) %>%
+bind_cols(df['idbase'])
+view(df)
+colnames(df_indicadores )
+df
+haven::as_factor(df)
+df
+view(df)
+print(n=10)
+head(df)
+df <- haven::as_factor(df)
+write.csv(df, "data_para_pbi.csv")
+colnames(df)
+head(df_dim)
+head(df_dim)
+for (col in cols) {
+df_dim <- df %>%
+select(col) %>%
+unique()
+head(df_dim)
+}
+cols <- colnames(df)
+for (col in cols) {
+df_dim <- df %>%
+select(col) %>%
+unique()
+head(df_dim)
+}
+view(df)
+for (col in cols) {
+df_dim <- df %>%
+select(col) %>%
+unique()
+head(df_dim)
+}
+view(df)
+df_dim <- df %>%
+select(all_of(col)) %>%
+unique()
+view(df)
+fdw
+library(dplyr)
+library(ggplot2)
+a = 2
+b = 'hola'
+c # voy a crear un objeto c con el numero 10 guardado
+c=10
+setwd("~/R")
+library(tidyverse)
+library(readxl)
+library(knitr)
+cncs = read_xlsx("Base CNCS Agosto 2025.xlsx")
+view(cncs)
+View(cncs)
+setwd("C:\1\estudios\zonA\2025\2025\datos"")
+setwd("C:\1\estudios\zonA\2025\2025\datos")
+setwd("C:/1/estudios/zonA/2025/2025/datos")
+library(tidyverse)
+library(haven)
+dfb = read_sav('BASE_PBI.sav')
+head(dfb)
+colnames(dfb) = tolower(colnames(dfb))
+segmentadores = c(
+'idbase',
+'sexo',
+'edad_tramo',
+'depto',
+'hijos',
+'barrio',
+'cargo_declarado',
+'edu_rec',
+'industria_rec',
+'modalidad_trabajo'
+)
+dfb_segmentadores = dfb %>%
+select(all_of(segmentadores))
+dfb_indicadores = dfb %>%
+select(-all_of(segmentadores)) %>%
+bind_cols(dfb['idbase'])
+write_csv(dfb, 'dfb.csv', na = '')
+view dfb_segmentadores
+view dfb_indicadores
+head(dfb_segmentadores)
+head(dfb_indicadores)
+dfb = read_sav('BASE_PBI.sav')
+head(dfb)
+colnames(dfb) = tolower(colnames(dfb))
+segmentadores = c(
+'idbase',
+'sexo',
+'edad_tramo',
+'depto',
+'hijos',
+'barrio',
+'cargo_declarado',
+'edu_rec',
+'industria_rec',
+'modalidad_trabajo'
+)
+dfb_segmentadores = dfb %>%
+select(all_of(segmentadores))
+dfb_indicadores = dfb %>%
+select(-all_of(segmentadores)) %>%
+bind_cols(dfb['idbase'])
+dfb_labels = dfb %>% mutate(across(where(is.labelled), as_factor))
+write_csv(dfb, 'dfb.csv', na = '')
+dfb_labels = dfb %>% mutate(across(where(is.labelled), as_factor))
+write_csv(dfb_labels, 'dfb_labels.csv', na = '')
